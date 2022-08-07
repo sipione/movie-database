@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { HashRouter, Route, Routes } from "react-router-dom";
+import GlobalStyle from "./common/foundation/globalStyle";
+import ComponentHeader from "./components/header";
+import PageDetails from "./pages/details";
+import PageHome from "./pages/home";
+import PageStats from "./pages/stats";
+import PageStatsAlt from "./pages/stats--alt.js";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <GlobalStyle/>
+      <ComponentHeader/>
+      <Routes>
+        <Route path="/" element={<PageHome/>}/>
+        <Route path="/movie/:id" element={<PageDetails/>}/>
+        <Route path="/movie/stats" element={<PageStats/>}/>
+        <Route path="/movie/stats-alternative" element={<PageStatsAlt/>}/>
+      </Routes>
+    </HashRouter>
   );
 }
 
