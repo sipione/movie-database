@@ -35,7 +35,7 @@ const ComponentHeader = ()=>{
             <MenuBox hide={hideMenu}>
                 <nav>
                     <Link to="/"><TextBodyP>Home</TextBodyP></Link>
-                    <Link to="/movie/stats"><TextBodyP>Stats</TextBodyP></Link>
+                    <Link to="/movie/stats-alternative"><TextBodyP>Stats</TextBodyP></Link>
                 </nav>
             </MenuBox>
 

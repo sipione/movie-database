@@ -6,7 +6,7 @@ export const HomeContainer = styled.section`
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 2.5vh 0;
+    padding: 0 0 2.5vh 0;
 
     h2{
         margin-bottom: 2.5vh;

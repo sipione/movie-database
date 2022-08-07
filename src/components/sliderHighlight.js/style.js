@@ -2,15 +2,14 @@ import styled from "styled-components";
 import { DarkColorHex, MainColorHex, MobileMaxWidth, PrimaryColorHex, SecondaryColorHex } from "../../common/foundation/variables";
 
 export const SliderContainer = styled.section`
-    height: 100%;
-    padding: 2.5%;
     background: url(${props=>props.image}) center / cover no-repeat;
+    height: 100vh;
+    padding: 2.5%;
     align-items: center;
     justify-content: start;
     position: relative;
     border-radius: 5px;
     z-index: 1;
-    height: 80vh;
     overflow: hidden;
 
     a{
@@ -31,9 +30,9 @@ export const SliderContainer = styled.section`
         bottom: 0;
         right: 0;
         opacity: 0.8;
-        backdrop-filter: blur(5px);
         border-radius: 5px;
         z-index: -1;
+        backdrop-filter: blur(5px);
     }
 
     :after{
@@ -44,7 +43,7 @@ export const SliderContainer = styled.section`
         bottom: 0;
         right: 0;
         background: ${MainColorHex};
-        opacity: 0.8;
+        opacity: 0.6;
         border-radius: 5px;
         z-index: -1;
     }

@@ -4,11 +4,14 @@ import { MoviesContext } from "../../common/contexts/moviesContext";
 import { TextBodyP, TextTitleH1, TextTitleH2, TextTitleH3, TextTitleH4 } from "../../common/foundation/typography"
 import ComponentSlider from "../../components/sliderHighlight.js";
 import { CardContent, CardImg, CtnMoviesPagination, HomeCard, HomeContainer, HomeCtnMovies, HomeCtnTop } from "./style";
-
+import poster from "../../assets/images/poster.jpg";
 import { ImageBaseUrl } from "../../common/foundation/variables";
+import ComponentFilter from "../../components/filter";
 
 const PageHome = ()=>{
     const {moviesData, topMoviesData, pagesInfo, setPagesInfo, loading} = useContext(MoviesContext);
+    console.log(moviesData)
+    console.log(new Date().getFullYear())
 
     const handlePage = (target)=>{
         if(target == "decrease"){
@@ -27,15 +30,14 @@ const PageHome = ()=>{
 
     return(
         <HomeContainer>
-            <TextTitleH2>Os mais populares</TextTitleH2>
-            
             <ComponentSlider data={topMoviesData}/>
 
             <TextTitleH3 className="title-all-movies">All Movies</TextTitleH3>
+            <ComponentFilter/>
             <HomeCtnMovies>
             {moviesData?.results?.map(item=>
-                <HomeCard><Link to={`/movie/${item.id}`}>
-                    <CardImg backdrop={ImageBaseUrl(1280, item.poster_path)}/>
+                <HomeCard key={item.id}><Link to={`/movie/${item.id}`}>
+                    <CardImg backdrop={item.poster_path ? ImageBaseUrl(300, item.poster_path) : poster}/>
 
                     <CardContent rate={item.vote_average}>
                         <TextTitleH4>{item.title}</TextTitleH4>                        
