@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Chart from "react-google-charts";
 import { PrimaryColorHex } from "../../common/foundation/variables";
 import { StatsAltContainer } from "./style";
+import env from "react-dotenv";
 
 
 const PageStatsAlt = ()=>{
@@ -35,7 +36,7 @@ const PageStatsAlt = ()=>{
 
     
     const getTopRated = async ()=>{
-        const uri = `https://api.themoviedb.org/3/movie/top_rated?api_key=5b706ce296b45e978df1e2dd4f607f96&language=pt-br&language=pt-PT&page=1`
+        const uri = `https://api.themoviedb.org/3/movie/top_rated?api_key=${env.API_KEY}&language=pt-br&language=pt-PT&page=1`
 
         const options = {
             method: 'GET',

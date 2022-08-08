@@ -11,6 +11,7 @@ export const HeaderContainer = styled.header`
     padding: 1vh 5vw;
     position: relative; 
     width: 100%;
+    z-index:2;
 
     svg{
         max-height: 5vh;

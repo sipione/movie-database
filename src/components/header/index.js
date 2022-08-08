@@ -11,21 +11,24 @@ const ComponentHeader = ()=>{
     const [gitUser, setGitUser]=useState();
     const [hideMenu, setHideMenu]=useState(true);
     const [hideGitSearch, setHideGitSearch]=useState(true);
-    console.log(avatarUrl, gitUser)
-
-
+    
+    
     const fetchGitHub = async (user)=>{
-        return
-        /*const options = {
+        const options = {
             method: 'GET',
             Headers: {
                 "Content-Type": "application/json"
             }
         };
-        const response = await fetch(`https://api.github.com/users/${user}`, options);
-        const dataJson = await response.json(); 
-        setAvatarUrl(dataJson.avatar_url);
-        setGitUser(dataJson);*/
+        try{
+            const response = await fetch(`https://api.github.com/users/${user}`, options);
+            const dataJson = await response.json(); 
+            console.log(dataJson)
+            setAvatarUrl(dataJson.avatar_url);
+            setGitUser(dataJson);
+        }catch(err){
+            console.log(err)
+        }
     }
 
     return(
@@ -51,7 +54,7 @@ const ComponentHeader = ()=>{
                     }} 
                     onChange={(event)=>setGitUser(event.target.value)} 
                     type="search" 
-                    placeholder="Who are you?"
+                    placeholder="Digite seu usuário gitHub"
                 />  
                 <button onClick={()=>fetchGitHub(gitUser)}>search</button>
             </GitHubSearch>
