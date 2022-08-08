@@ -3,6 +3,7 @@ import Chart from "react-google-charts";
 import { PrimaryColorHex } from "../../common/foundation/variables";
 import { StatsAltContainer } from "./style";
 import env from "react-dotenv";
+import { TextTitleH1, TextTitleH3 } from "../../common/foundation/typography";
 
 
 const PageStatsAlt = ()=>{
@@ -23,12 +24,52 @@ const PageStatsAlt = ()=>{
 
     useEffect(()=>{
         if(data){
-            const arrayByMovie = data.map(item=>[item.title, item.vote_average, item.vote_average, `Total: ${item.vote_count} votes`, `color: ${PrimaryColorHex}`])
-            const arrayByVotes = data.map(item=>[item.title, item.vote_count, item.vote_count, `Average: ${item.vote_average}`, `color: ${PrimaryColorHex}`])
-    
-            setDataChartByMovie([["movies", "vote average", {role: 'annotation'}, {role: 'tooltip'}, {role: "style"}], ...arrayByMovie]);
+            const arrayByMovie = data.map(item=>
+                [
+                    item.title, 
+                    item.vote_average, 
+                    item.vote_average, 
+                    `Total: ${item.vote_count} votes`, 
+                    `color: ${PrimaryColorHex}`
+                ]
+            )
 
-            setDataChartByVotes([["movies", "vote count", {role: 'annotation'}, {role: 'tooltip'}, {role: "style"}], ...arrayByVotes]);
+            setDataChartByMovie(
+                [
+                    [
+                        "movies", 
+                        "vote average", 
+                        {role: 'annotation'}, 
+                        {role: 'tooltip'}, 
+                        {role: "style"}
+                    ], 
+                    ...arrayByMovie
+                ]
+            );
+
+            const arrayByVotes = data.map(item=>
+                [
+                    item.title, 
+                    item.vote_count, 
+                    item.vote_count, 
+                    `Average: ${item.vote_average}`, 
+                    `color: ${PrimaryColorHex}`
+                ]
+            )
+
+            setDataChartByVotes(
+                [
+                    [
+                        "movies", 
+                        "vote count", 
+                        {role: 'annotation'}, 
+                        {role: 'tooltip'}, 
+                        {role: "style"}
+                    ], 
+                    ...arrayByVotes
+                ]
+            );
+
         }else{
             getTopRated();
         }
@@ -57,16 +98,19 @@ const PageStatsAlt = ()=>{
 
     return(
         <StatsAltContainer>
+            <TextTitleH1 className="title--h1">Estatísticas</TextTitleH1>
 
-            <Chart
-                chartType="ColumnChart"
-                data={dataChartByMovie}
-                options = {options}
-            />
-
+            <TextTitleH3 className="title--chat">Relação filmes com volume de avaliações:</TextTitleH3>
             <Chart
                 chartType="ColumnChart"
                 data={dataChartByVotes}
+                options = {options}
+            />
+
+            <TextTitleH3 className="title--chat">Relação filmes com notas:</TextTitleH3>
+            <Chart
+                chartType="ColumnChart"
+                data={dataChartByMovie}
                 options = {options}
             />
         </StatsAltContainer>
