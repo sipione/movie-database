@@ -71,8 +71,10 @@ const ComponentFilter = ()=>{
                     <option value={null}/>
                         {genres?.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}
                 </optgroup>
-                </select>
+                </select>                
+            </FilterSortField>
 
+            <FilterSearchField>
                 <input
                     placeholder={search || "pesquisar"} 
                     onChange={event=>setSearch(event.target.value)} type="search"
@@ -85,16 +87,12 @@ const ComponentFilter = ()=>{
                         }
                     }}
                 />
-                
-                <button onClick={(event)=>{
-                    event.preventDefault()
-                    handleMovieSorter()
-                }}>Buscar</button>
-            </FilterSortField>
-
-            <FilterSearchField>
-
             </FilterSearchField>
+            
+            <button onClick={(event)=>{
+                event.preventDefault()
+                handleMovieSorter()
+            }}>Buscar</button>
         </FilterContainer>
     )
 }

@@ -14,6 +14,7 @@ export const HomeContainer = styled.section`
 
     .title-all-movies{
         margin: 7.5vh 0 2vh 0;
+        padding: 0 2.5vw;
     }
 `;
 

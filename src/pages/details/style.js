@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ComplementaryColorHex, ComplementaryColorRgba, MainColorHex, MainColorRgba, MobileMaxWidth, PrimaryColorHex, PrimaryColorRgba, SecondaryColorHex } from "../../common/foundation/variables";
+import { ComplementaryColorHex, ComplementaryColorRgba, DarkColorHex, MainColorHex, MainColorRgba, MobileMaxWidth, PrimaryColorHex, PrimaryColorRgba, SecondaryColorHex } from "../../common/foundation/variables";
 
 export const DetailsContainer = styled.section`
     width: 100%;
@@ -79,15 +79,15 @@ export const ContentInfo = styled.div`
     }
 `;
 
-export const ContentBodyVideo = styled.div`
+export const ContentBodyPoster = styled.div`
     display: none;
 
     @media screen and (min-width: ${MobileMaxWidth}px){
         display:block;
         width: 40%;
-        z-index:10;
 
         img{
+            border-radius: 5px;
             height: 100%;
             max-width: 100%;
         }
@@ -145,8 +145,33 @@ export const AvaliationRateInputs = styled.div`
         cursor: pointer;
     }
 
+    input{
+        padding: 0.5%;
+        border-radius:5px;
+        outline: none;
+        border: 1px solid ${SecondaryColorHex};
+        background: none;
+        color: ${MainColorHex};
+
+        ::placeholder{
+            color: ${MainColorHex};
+        }
+    }
+
     button{
         margin-left: 15vw;
+        padding: 1%;
+        background: none;
+        border: 1px solid ${SecondaryColorHex};
+        border-radius: 5px;
+        color: ${MainColorHex};
+        cursor: pointer;
+        transition: 0.5s;
+
+        :hover{
+            background: ${SecondaryColorHex};
+            color: ${DarkColorHex};
+        }
     }
 
     @media screen and (min-width: ${MobileMaxWidth}px){

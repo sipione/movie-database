@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { TextBodyP, TextTitleH1, TextTitleH2, TextTitleH3, TextTitleH4 } from "../../common/foundation/typography";
 import { AvatarBaseUrl, ImageBaseUrl } from "../../common/foundation/variables";
-import { DetailsContainer, ContentInfo, DetailsCtnPoster, InfoProductionCard, DetailsInfoReviews, DetailsCtnContent, DetailsRelatedMovies, DatailsAvaliation, AvaliationRateStars, AvaliationRateInputs, ContentBodyTexts, ContentBodyVideo, DetailsGallery } from "./style";
+import { DetailsContainer, ContentInfo, DetailsCtnPoster, InfoProductionCard, DetailsInfoReviews, DetailsCtnContent, DetailsRelatedMovies, DatailsAvaliation, AvaliationRateStars, AvaliationRateInputs, ContentBodyTexts, ContentBodyPoster, DetailsGallery } from "./style";
 import camera from "../../assets/images/camera.svg";
 import env from "react-dotenv";
 import ComponentCtnMviesSlider from "../../components/ctnMoviesSlider";
@@ -253,9 +253,9 @@ const PageDetails = ()=>{
 
                     </ContentBodyTexts>
                     
-                    <ContentBodyVideo>
+                    <ContentBodyPoster>
                             <img src={ImageBaseUrl(1280, movie.poster_path)}/>
-                    </ContentBodyVideo>
+                    </ContentBodyPoster>
                 </div>
 
             </DetailsCtnContent>
