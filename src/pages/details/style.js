@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ComplementaryColorHex, ComplementaryColorRgba, MainColorHex, MainColorRgba, PrimaryColorHex, PrimaryColorRgba, SecondaryColorHex } from "../../common/foundation/variables";
+import { ComplementaryColorHex, ComplementaryColorRgba, MainColorHex, MainColorRgba, MobileMaxWidth, PrimaryColorHex, PrimaryColorRgba, SecondaryColorHex } from "../../common/foundation/variables";
 
 export const DetailsContainer = styled.section`
     width: 100%;
@@ -7,10 +7,26 @@ export const DetailsContainer = styled.section`
     flex-direction: column;
     min-height: 100vh;
 
-    .title--h1{
-        text-align: center;
-        color: ${MainColorHex};
+    .content__title{
+        
+        border-radius: 5px;
+    
+        .title__h1{
+         
+            text-align: center;
+        }
+
+        .title__h2{
+            text-align: center;
+            color: ${MainColorHex};
+        }
     }
+
+    .content__body{
+        display: flex;
+        justify-content: space-between;
+    }
+
 `;
 
 export const DetailsCtnContent = styled.div`
@@ -25,8 +41,8 @@ export const DetailsCtnContent = styled.div`
 
     ::before{
         content: "";
-        background: ${PrimaryColorRgba(0.6)};
-        backdrop-filter: blur(3px);
+        background: ${PrimaryColorRgba(0.8)};
+        backdrop-filter: blur(5px);
         position: absolute;
         top:0;
         bottom:0;
@@ -37,8 +53,16 @@ export const DetailsCtnContent = styled.div`
 
 `;
 
+export const ContentBodyTexts = styled.div`
+    width: 100%;
+
+    @media screen and (min-width: ${MobileMaxWidth}px){
+        width: 50%;
+    }
+`;
+
 export const ContentInfo = styled.div`
-    width: 60%;
+    width: 100%;
     
     p{
         color: ${MainColorHex};
@@ -55,7 +79,102 @@ export const ContentInfo = styled.div`
     }
 `;
 
-export const InfoReviews = styled.div`
+export const ContentBodyVideo = styled.div`
+    display: none;
+
+    @media screen and (min-width: ${MobileMaxWidth}px){
+        display:block;
+        width: 40%;
+        z-index:10;
+
+        img{
+            height: 100%;
+            max-width: 100%;
+        }
+    }
+`;
+
+export const DatailsAvaliation = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: ${PrimaryColorHex};
+    padding: 5vh 0;
+    margin-bottom: 5vh;
+`;
+
+export const AvaliationRateStars = styled.div`
+    width: 250px;
+    height: 50px;
+    display: flex;
+    position: relative;
+
+    .rate{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .drapery{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: ${props=>(10 - Number(props.rate))*10}%;
+        background: ${PrimaryColorHex};
+        z-index: 1;
+        transition: 1s;
+    }
+`
+
+export const AvaliationRateInputs = styled.div`
+    width: 100%;
+    display: flex;
+    gap: 2.5vw;
+    justify-content: center;
+    align-items:center;
+
+    svg{
+        width: 20px;
+        height: auto;
+        cursor: pointer;
+    }
+
+    button{
+        margin-left: 15vw;
+    }
+
+    @media screen and (min-width: ${MobileMaxWidth}px){
+        button{
+            margin-left: 2.5vw;
+        } 
+    }
+`;
+
+export const DetailsGallery = styled.div`
+    display: flex;
+    gap: 2.5vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-bottom: 5vh;
+
+    a{
+        max-height: 100%;
+    }
+
+    img{
+        height: 100%;
+        max-height: 100%;
+        max-width: 25vw;
+    }
+`;
+
+export const DetailsInfoReviews = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2vh;
